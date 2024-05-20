@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Home</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width" />
+    <!--
+      Need a visual blank slate?
+      Remove all code in `styles.css`!
+    -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Bree+Serif&family=Poetsen+One&display=swap"
+      rel="stylesheet"
+    />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script
+      defer
+      src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"
+    ></script>
+  </head>
+  <body
+    class="p-0 font-['Bree_Serif'] grid items-center bg-slate-800 text-white grid-rows-[100px_minmax(0,_1fr)] w-screen h-screen"
+  >
+    <div class="bg-blue-500 w-full h-full grid place-content-center">
+      <h1 class="drop-shadow-xl text-7xl font-['Poetsen_One']">
+        Happy Birthday Momma
+      </h1>
+    </div>
+
+    <div class="p-5 overflow-auto h-full">
+      <div x-data="{open:false}" class="flex flex-col items-center">
+        <div class="flex flex-row items-center gap-1">
+          <h3>Why I love my momma</h3>
+          <button
+            class="p-1 bg-blue-500 rounded-md text-white"
+            @click="open=!open"
+            x-text="!open ? 'Open' : 'Close'"
+          ></button>
+        </div>
+        <div x-show="open" class="flex flex-row gap-5 p-5">
+          <template
+            x-for="i in ['She is loving','She is caring','She is a good cook','She is the best']"
+          >
+            <div
+              x-text="i"
+              class="p-5 bg-blue-500 rounded-md text-center text-white shadow-sm"
+            ></div>
+          </template>
+        </div>
+      </div>
+      <br />
+      <div x-data="{open:false}" class="flex flex-col items-center">
+        <div class="flex flex-row items-center gap-1">
+          <h3>Enjoy some photos of our dogs!</h3>
+          <button
+            class="p-1 bg-blue-500 rounded-md text-white"
+            @click="open=!open"
+            x-text="!open ? 'Open' : 'Close'"
+          ></button>
+        </div>
+
+        <div
+          x-show="open"
+          class="flex gap-5 p-5 flex-wrap justify-center w-1/2"
+        >
+          <template x-for="i in images">
+            <img
+              :src="i"
+              alt=""
+              width="180px"
+              class="rounded-md border-2 border-white"
+            />
+          </template>
+        </div>
+      </div>
+    </div>
+  </body>
+  <script>
+    let images = [
+      'https://i.imgur.com/CzGF7dO.jpeg',
+      'https://i.imgur.com/6LYXVR8.jpeg',
+      'https://i.imgur.com/hhFC9OI.jpeg',
+      'https://i.imgur.com/GqjMHCR.jpeg',
+      'https://i.imgur.com/25T4Z8N.jpeg',
+      'https://i.imgur.com/uuLSxP9.jpeg',
+      'https://i.imgur.com/Cqdk3n8.jpeg',
+      'https://i.imgur.com/KBiE5Tf.jpeg',
+      'https://i.imgur.com/OVhvxgM.jpeg',
+      'https://i.imgur.com/Cqdk3n8.jpeg',
+    ];
+  </script>
+</html>
